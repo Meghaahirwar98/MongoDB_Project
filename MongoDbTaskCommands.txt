@@ -1,0 +1,173 @@
+
+~Insert at least 5 documents in ‘Employee’ collection
+
+db.Employee.insertOne({'Employee_Id': 'ATIL-101', 
+	'Emp_FirstName': "Megha", 
+	'Emp_LastName': "Ahirwar", 
+	'Designation':"Software Engineer", 
+	'Joining_Date':Date(), 
+	'Resignation_Date': "", 
+	'Salary': 15000, 
+	'Remarks': 'working fine'})
+
+db.Employee.insertOne({'Employee_Id': 'ATIL-102', 
+	'Emp_FirstName': "Priya", 
+	'Emp_LastName': "Dehariya", 
+	'Designation':"Software Engineer", 
+	'Joining_Date':Date(), 
+	'Resignation_Date': "", 
+	'Salary': 15000, 
+	'Remarks': 'Recently joined'})
+
+db.Employee.insertOne({'Employee_Id': 'ATIL-103', 
+	'Emp_FirstName': "Anuja", 
+	'Emp_LastName': "Bansod", 
+	'Designation':"Software Engineer", 
+	'Joining_Date':Date(), 
+	'Resignation_Date': "", 
+	'Salary': 14900, 
+	'Remarks': 'Recently joined'})
+
+db.Employee.insertOne({'Employee_Id': 'ATIL-104', 
+	'Emp_FirstName': "Lavanya", 
+	'Emp_LastName': "Yangala", 
+	'Designation':"Software Engineer", 
+	'Joining_Date':Date(), 
+	'Resignation_Date': "", 
+	'Salary': 15100, 
+	'Remarks': 'Recently joined'})
+
+db.Employee.insertOne({'Employee_Id': 'ATIL-105', 
+	'Emp_FirstName': "Jaishree", 
+	'Emp_LastName': "Malode", 
+	'Designation':"Software Engineer", 
+	'Joining_Date':Date(), 
+	'Resignation_Date': "", 
+	'Salary': 14980, 
+	'Remarks': 'Recently joined'})
+
+db.Employee.insertOne({'Employee_Id': 'ATIL-106', 
+	'Emp_FirstName': "Rama", 
+	'Emp_LastName': "Devi", 
+	'Designation':"Software Engineer", 
+	'Joining_Date':Date(), 
+	'Resignation_Date': "", 
+	'Salary': 14990, 
+	'Remarks': 'Recently joined'})
+
+db.Employee.insertOne({'Employee_Id': 'ATIL-106', 
+	'Emp_FirstName': "Keerti", 
+	'Emp_LastName': "Ahirwar", 
+	'Designation':"Software Engineer", 
+	'Joining_Date':Date(), 
+	'Resignation_Date': "", 
+	'Salary': 14990, 
+	'Remarks': 'Recently joined'})
+
+~Insert multiple documents (at least 10) into the ‘Transaction’ collection by passing an array of 
+documents to the db.collection.insert() method.
+
+db.Transaction.insertMany([{
+	'transaction_Id': 200,
+	'transaction_Bank': 'SBI',
+	'transaction_Date': "01/01/2023",
+	'debit_Amount': 2000,
+	'credit_Amount': "",
+	'account_Type': "Current",
+	'Remark': "Completed"},
+	{
+	'transaction_Id': 201,
+	'transaction_Bank': 'Axis',
+	'transaction_Date': "02/01/2023",
+	'debit_Amount': 2050,
+	'credit_Amount': "",
+	'account_Type': "saving",
+	'Remark': "Completed"},
+	{
+	'transaction_Id': 203,
+	'transaction_Bank': 'CBI',
+	'transaction_Date': "03/01/2023",
+	'debit_Amount': 2000,
+	'credit_Amount': "",
+	'account_Type': "Current",
+	'Remark': "Completed"},
+	{
+	'transaction_Id': 204,
+	'transaction_Bank': 'RBI',
+	'transaction_Date': "04/01/2023",
+	'debit_Amount': 2050,
+	'credit_Amount': "",
+	'account_Type': "saving",
+	'Remark': "Completed"},
+	{
+	'transaction_Id': 205,
+	'transaction_Bank': 'SBI',
+	'transaction_Date': "05/01/2023",
+	'debit_Amount': 2000,
+	'credit_Amount': "",
+	'account_Type': "Current",
+	'Remark': "Completed"},
+	{
+	'transaction_Id': 206,
+	'transaction_Bank': 'Axis',
+	'transaction_Date': "06/01/2023",
+	'debit_Amount': 2050,
+	'credit_Amount': "",
+	'account_Type': "saving",
+	'Remark': "Completed"},
+	{
+	'transaction_Id': 207,
+	'transaction_Bank': 'CBI',
+	'transaction_Date': "07/01/2023",
+	'debit_Amount': 2000,
+	'credit_Amount': "",
+	'account_Type': "Current",
+	'Remark': "Completed"},
+	{
+	'transaction_Id': 208,
+	'transaction_Bank': 'RBI',
+	'transaction_Date': "08/01/2023",
+	'debit_Amount': 2050,
+	'credit_Amount': "",
+	'account_Type': "saving",
+	'Remark': "Completed"},
+	{
+	'transaction_Id': 209,
+	'transaction_Bank': 'SBI',
+	'transaction_Date': "09/01/2023",
+	'debit_Amount': 2000,
+	'credit_Amount': "",
+	'account_Type': "Current",
+	'Remark': "Completed"},
+	{
+	'transaction_Id': 210,
+	'transaction_Bank': 'Axis',
+	'transaction_Date': "10/01/2023",
+	'debit_Amount': 2050,
+	'credit_Amount': "",
+	'account_Type': "saving",
+	'Remark': "Completed"},
+	{
+	'transaction_Id': 211,
+	'transaction_Bank': 'CBI',
+	'transaction_Date': "11/01/2023",
+	'debit_Amount': 2000,
+	'credit_Amount': "",
+	'account_Type': "Current",
+	'Remark': "Completed"}])
+
+~Display all the documents of both the collections in a formatted manner.
+db.Employee.find().pretty()
+db.Transaction.find().pretty()
+
+~Update the salary of all employees by giving an increment of Rs. 4000
+db.Employee.updateMany({}, { $inc: { Salary:4000 }})
+
+~Update the remark for transaction id 200.
+db.Transaction.updateOne( { 'transaction_Id': 200 },
+	 { $set: 
+		{ Remark: "Received" }})
+ 
+~. Delete all the employees whose first name starts with ‘K’.
+db.Employee.find({Emp_FirstName: { '$regex': 'M'}}, {})
+db.Employee.deleteOne({Emp_FirstName: { '$regex': 'M'}}, {})

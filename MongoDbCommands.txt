@@ -1,0 +1,112 @@
+Mongo DB commands for Databases:
+
+view all databases:
+~show dbs
+
+create a new or switch databases
+~ use database_name
+
+view current database
+~ db
+
+Delete database
+~db.dropDatabase()
+
+
+Mongo DB commands for Collections:
+
+view collections(Tables)
+~ show collections
+
+Create a collections
+~db.createCollections("Collection_name")
+
+delete a collection
+~ db.collection_name.drop()
+----------------------------------------------------------------
+Mongo DB commands for rows:
+
+show all rows
+db.collection_name.find()
+
+show all rows in a collection(Prettified)
+db.collection_name.find().pretty()
+
+to set limit  the number of rows in output
+db.collection_name.find().pretty().limit(2)
+
+count the number of rows in the output
+db.collection_name.fine().limit(2).count()
+db.collection_name.fine({'name':'megha'}).count()
+
+search in a mongodb database
+db.collection_name.find({'language': 'english'})
+db.collection_name.find({'language': 'english', 'name':'megha'})
+
+to do sort in ascending or descending order
+db.collection_name.find().sort({column_name:-1}).pretty()
+
+Find the first row matching the object
+db.collection_name.findOne({name:'Megha'})
+
+Inserts one rows
+db.collection_name.insert({
+	'name': 'megha',
+	'roll number': 1,
+	'language': "English"})
+
+inserts many rows
+db.collection_name.insertMany([{
+	'name': 'megha',
+	'roll number': 1,
+	'language': "English"},
+	{
+	'name': 'Priya',
+	'roll number': 2,
+	'language': "python"},
+	{
+	'name': 'Anuja',
+	'roll number': 3,
+	'language': "java"}])
+
+
+Update a row
+db.collection_name.update({name: 'megha'}, 
+	{
+	'name': 'megha',
+	'roll number': 5,
+	'language': "English"})
+
+if records not matched then insert a new record in the collection
+db.collection_name.update({name: 'Lavanya'}, 
+	{
+	'name': 'megha',
+	'roll number': 5,
+	'language': "English"},{upsert:true})
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
